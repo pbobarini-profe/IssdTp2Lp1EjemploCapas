@@ -107,5 +107,21 @@ namespace IssdTp2Lp1EjemploCapas
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            decimal min = decimal.Parse(tbMin.Text);
+            decimal max = decimal.Parse(tbMax.Text);
+
+            platoBindingSource.DataSource = null;
+            platoBindingSource.DataSource = platos
+                .Where(p => p.Precio >= min && p.Precio <= max);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            platoBindingSource.DataSource = null;
+            platoBindingSource.DataSource = platos;
+        }
     }
 }
